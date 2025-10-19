@@ -1,0 +1,32 @@
+name: SF Auto Sign
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 17 * * *' # 北京时间1:30(UTC时间17:30)
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set TimeZone to Asia/Shanghai
+        run: |
+          sudo timedatectl set-timezone 'Asia/Shanghai'
+      - name: Checkout repository content
+        uses: actions/checkout@v2
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run the script
+        run: python sf_sign.py
+        env:
+          SF_NONCE: ${{ secrets.SF_NONCE }}
+          SF_DEVICETOKEN: ${{ secrets.SF_DEVICETOKEN }}
+          SF_SIGN: ${{ secrets.SF_SIGN }}
+          SF_AUTHORIZATION: ${{ secrets.SF_AUTHORIZATION }}
+          SF_COOKIE_SFCOMMUNITY: ${{ secrets.SF_COOKIE_SFCOMMUNITY }}
+          SF_COOKIE_SESSIONAPP: ${{ secrets.SF_COOKIE_SESSIONAPP }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
