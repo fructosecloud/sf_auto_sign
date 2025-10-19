@@ -54,7 +54,7 @@ class SFSign:
         try:
             data = message.encode('utf-8')
             headers = {
-                "Title": title,
+                "Title": title.encode('utf-8'),
                 "Priority": priority,
                 "Tags": ",".join(tags)
             }
