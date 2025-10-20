@@ -11,7 +11,13 @@
 - ✅ 多端通知（通过 ntfy.sh）
 - ✅ 自动保活机制（防止 GitHub Actions 停用）
 
-## 保活机制
+## 未来规划
+- [ ] 自动完成每日任务
+- [ ] 自动订阅小说
+- [ ] 增添更多的通知方案，比如Bark，微信等等
+- [ ] 通过手机号密码登录
+
+## 保活机制 (可选)
 
 项目包含两个 GitHub Actions Workflow：
 
@@ -35,3 +41,7 @@
 - `SF_COOKIE_SFCOMMUNITY`
 - `SF_COOKIE_SESSIONAPP`
 - `NTFY_TOPIC`
+
+## 致谢
+
+感谢 [fengyinxia/sfacg](https://github.com/fengyinxia/sfacg) 提供技术方法和思路
