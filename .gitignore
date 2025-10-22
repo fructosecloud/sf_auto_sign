@@ -2,4 +2,4 @@
 __pycache__/
 
 #测试文件
-test.py
+*.test.py	
